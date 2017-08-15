@@ -7,7 +7,7 @@ An erlang application for [Firebase Cloud Messaging][]
 ## Quickstart ##
 
 ```
-$ erl -s fcm -fcm api_key \"`cat  ~/.fcm_api_key`\"
+$ erl -s fcm -fcm api_key \"$(cat  ~/.fcm_api_key)\"
 ...
 1> Token = <<"dJKIEHyBL4s:APA91bHcEnjDZx...">>.
 2> fcm:push(Token, [{notification, [{title, <<"test">>}, {body, <<"test">>}]}]).
@@ -49,7 +49,7 @@ $ rebar3 compile
 
 Be sure to set your api key
 ```
-$ erl -s fcm -fcm api_key \"`cat  ~/.fcm_api_key`\"
+$ erl -s fcm -fcm api_key \"$(cat  ~/.fcm_api_key)\"
 ```
 
 

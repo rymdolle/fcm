@@ -293,6 +293,8 @@ handle_info({http, {_ReqId, {{_, 200, _}, Headers, Body}}}, State) ->
     CannonicalIds = maps:get(<<"canonical_ids">>, Json),
     if Failures == 0 andalso CannonicalIds == 0 ->
             lager:debug("Sent successfully"),
+            Message = State#state.message,
+            save_message(Message#fcm_message{sent = true}),
             {stop, normal, State};
        true ->
             RetryMessages = get_retry_messages(State#state.message, Json),

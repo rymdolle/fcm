@@ -15,7 +15,8 @@
 -record(fcm_key, {token :: fcm:token(),
                   id    :: fcm:id()}).
 
--record(fcm_message, {id      :: fcm:message_id(),
-                      to      :: fcm:id() | [fcm:id()],
-                      content :: list(),
-                      results :: list()}).
+-record(fcm_message, {id           :: fcm:message_id(),
+                      to           :: fcm:id() | [fcm:id()],
+                      sent = false :: boolean(),
+                      content      :: list(),
+                      results      :: list()}).
